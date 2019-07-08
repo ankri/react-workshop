@@ -1,0 +1,24 @@
+{
+  "name": "workshop-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "date-fns": "^1.30.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "node-cache": "^4.2.0",
+    "uuid": "^3.3.2",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "cross-env": "^5.2.0"
+  }
+}
