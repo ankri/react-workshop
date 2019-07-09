@@ -20,5 +20,10 @@
   "devDependencies": {
     "nodemon": "^1.19.1",
     "cross-env": "^5.2.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "data/*.json"
+    ]
   }
 }
