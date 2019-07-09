@@ -1,3 +1,9 @@
+# react-workshop-app: travel expenses
+
+The `/ui` folder contains the source for the application we're building. Go to the [Introduction](https://github.com/ankri/react-workshop/blob/master/tasks/Task-0.md) to see what the application is about and how to develop the application.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
