@@ -1,0 +1,20 @@
+[
+  {
+    "id": "f61b3510-a14e-11e9-9b9c-bb1df3696be1",
+    "title": "Credit Card",
+    "icon": "credit-card",
+    "color": "lightskyblue"
+  },
+  {
+    "id": "fdd4bf10-a14e-11e9-b5de-731bc35c33b1",
+    "title": "Cash",
+    "icon": "bank-account",
+    "color": "darkolivegreen"
+  },
+  {
+    "id": "025ae370-a14f-11e9-a126-a79d424ea8ee",
+    "title": "Hotel Room",
+    "icon": "home",
+    "color": "crimson"
+  }
+]

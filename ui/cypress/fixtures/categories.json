@@ -1,0 +1,32 @@
+[
+  {
+    "id": "c5c42d40-a14e-11e9-bfef-a7ff78712f07",
+    "title": "Food",
+    "icon": "shop",
+    "color": "purple"
+  },
+  {
+    "id": "c9c54320-a14e-11e9-92f7-77a8dd973571",
+    "title": "Acommododation",
+    "icon": "home",
+    "color": "deeppink"
+  },
+  {
+    "id": "cf0541a0-a14e-11e9-92f7-77a8dd973571",
+    "title": "Travel",
+    "icon": "drive-time",
+    "color": "green"
+  },
+  {
+    "id": "d36f7990-a14e-11e9-92f7-77a8dd973571",
+    "title": "Shopping",
+    "icon": "shopping-cart",
+    "color": "darkslateblue"
+  },
+  {
+    "id": "d7e60d90-a14e-11e9-92f7-77a8dd973571",
+    "title": "Misc",
+    "icon": "help",
+    "color": "darkgoldenrod"
+  }
+]

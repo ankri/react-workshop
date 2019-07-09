@@ -1,0 +1,80 @@
+{
+  "title": "Munich 2017",
+  "id": "bd2ec230-a14e-11e9-96b8-2b7def96e055",
+  "dateFrom": "2017-04-01T22:00:00.000Z",
+  "dateTo": "2017-04-04T22:00:00.000Z",
+  "country": "DEU",
+  "currency": "EUR",
+  "expenses": [
+    {
+      "title": "Train",
+      "description": "HD -> M",
+      "date": "2017-04-01T22:00:00.000Z",
+      "amount": 13550,
+      "category": "cf0541a0-a14e-11e9-92f7-77a8dd973571",
+      "paymentType": "f61b3510-a14e-11e9-9b9c-bb1df3696be1",
+      "currency": "EUR",
+      "id": "9fe688c0-a1bc-11e9-8aba-59e59177b0b7"
+    },
+    {
+      "title": "Train",
+      "description": "M -> HD",
+      "date": "2017-04-04T22:00:00.000Z",
+      "amount": 13550,
+      "category": "cf0541a0-a14e-11e9-92f7-77a8dd973571",
+      "paymentType": "fdd4bf10-a14e-11e9-b5de-731bc35c33b1",
+      "currency": "EUR",
+      "id": "c746cba0-a1bc-11e9-8aba-59e59177b0b7"
+    },
+    {
+      "title": "Subway",
+      "description": "Main station -> Hotel",
+      "date": "2017-04-01T22:00:00.000Z",
+      "amount": 500,
+      "category": "cf0541a0-a14e-11e9-92f7-77a8dd973571",
+      "paymentType": "fdd4bf10-a14e-11e9-b5de-731bc35c33b1",
+      "currency": "EUR",
+      "id": "dc833260-a1bc-11e9-8aba-59e59177b0b7"
+    },
+    {
+      "title": "Supper",
+      "description": "Schnitzel",
+      "date": "2017-04-01T22:00:00.000Z",
+      "amount": 3600,
+      "category": "c5c42d40-a14e-11e9-bfef-a7ff78712f07",
+      "paymentType": "f61b3510-a14e-11e9-9b9c-bb1df3696be1",
+      "currency": "EUR",
+      "id": "f4fd8610-a1bc-11e9-8aba-59e59177b0b7"
+    },
+    {
+      "title": "Breakfast",
+      "description": "Bakery",
+      "date": "2017-04-02T22:00:00.000Z",
+      "amount": 760,
+      "category": "c5c42d40-a14e-11e9-bfef-a7ff78712f07",
+      "paymentType": "fdd4bf10-a14e-11e9-b5de-731bc35c33b1",
+      "currency": "EUR",
+      "id": "0e01a330-a1bd-11e9-8aba-59e59177b0b7"
+    },
+    {
+      "title": "Shopping",
+      "description": "Clothes & stuff",
+      "date": "2017-04-02T22:00:00.000Z",
+      "amount": 13850,
+      "category": "d36f7990-a14e-11e9-92f7-77a8dd973571",
+      "paymentType": "f61b3510-a14e-11e9-9b9c-bb1df3696be1",
+      "currency": "EUR",
+      "id": "1a0951a0-a1bd-11e9-8aba-59e59177b0b7"
+    },
+    {
+      "title": "Lunch",
+      "description": "Beer garden",
+      "date": "2017-04-04T22:00:00.000Z",
+      "amount": 4250,
+      "category": "c5c42d40-a14e-11e9-bfef-a7ff78712f07",
+      "paymentType": "f61b3510-a14e-11e9-9b9c-bb1df3696be1",
+      "currency": "EUR",
+      "id": "25cca410-a1bd-11e9-8aba-59e59177b0b7"
+    }
+  ]
+}
