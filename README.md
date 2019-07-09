@@ -78,3 +78,21 @@ I recommend using [VS Code](https://code.visualstudio.com/), but you're free to 
 # Staying up to date
 
 Since the code and the README is still work in progress, please run `git pull` again in the morning on 10th of July.
+
+# Next steps
+
+Have a look at the [server](https://github.com/ankri/react-workshop/tree/master/server) directory to get more information about the server or at the [ui](https://github.com/ankri/react-workshop/tree/master/ui) directory to get more information about the application we will be building.
+
+When you are ready to start developing start with the first task.
+
+# Tasks
+
+- [Introduction]() - Let's start with the introduction
+- [Task 1]() - Make a reusable `<Trip />` component and use it to display the incoming trips
+- [Task 2]() - We want to set the locale once and use it everywhere. Use `Context` to do this.
+- [Task 3]() - We want to be able to create a new trip. Let's write a form with `useState`.
+- [Task 4]() - Currently the app uses two ways to retrieve the data from the server. Let's refactor to just use hooks.
+- [Task 5]() - Let's have a look at the Router by editing `TripRouter.js`
+- [Task 6]() - We want to update the window title every time we change a route
+- [Task 7]() - There is a better way to use forms. Let's use `formik`
+- [Task 8]() - Let's refactor the mess that is `Trip.js`

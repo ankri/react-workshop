@@ -24,7 +24,7 @@ The HTTP services are all already implemented and can be found inside the `/ui` 
 
   To retrieve the lists and all their expenses
 
-- `GET /api/trip/:tripId``
+- `GET /api/trip/:tripId`
 
   To load a single trip. Where `tripId` is a uuid.v1. Returns `404` if the trip could not be found.
 
