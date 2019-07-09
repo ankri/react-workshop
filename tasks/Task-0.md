@@ -44,6 +44,8 @@ Double click on `001-trips.js` to run the test suite for the trips.
 
 Next go to [Task 1](https://github.com/ankri/react-workshop/blob/master/tasks/Task-1.md) and start coding.
 
+> **Important** For the tests the whole server is being mocked. It does not matter if you add, edit or remove trips and expenses!
+
 # Libraries
 
 The libraries used for the app are:
@@ -75,3 +77,14 @@ The libraries used for the app are:
 # Branches
 
 Start with the `master` branch. The solution is inside the `solution` branch. Only have peak if you are stuck.
+
+# Finishing the application
+
+After you have completed every task the development of the application sadly is not fished. These are steps that still have to be done:
+
+- Right now only EUR can be used as currency. The user should have a preferred currency. The user should also be able to select currencies that are selectable for expenses during a trip. The user then should be able to enter expenses and choose one of the currencies. The application should automatically convert all the amounts to the user's preferred currency.
+- The server should use a real database instead of saving the data onto the file system
+- The user should be able to change the locale
+- It should be possible to remove expenses and trips
+- It should be possible to create, update and delete categories and payment types
+- The server should use GraphQL

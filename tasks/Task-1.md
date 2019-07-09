@@ -53,3 +53,7 @@ if (isLoading) {
 Depending on the result of our `useFetchTrips` hook we render either a spinner to indicate that we are still loading, or an error message when an error occured or one trip when the request was successful.
 
 We now want to make a re-usable component out of it and `map` over the `trips` to display all the incoming trips.
+
+Consider provider `PropTypes` for your new component.
+
+> Try running the tests now but ignore the test called "Test document title" - we will get back to it later.
