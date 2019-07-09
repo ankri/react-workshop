@@ -104,12 +104,12 @@ There is a fitting method for all the auto-wired `handleXXX` methods.
 
 # So. Much. Boilerplate.
 
-Yes, in our application we will have so much error handling boilerplate. But luckily we can reduce the boilerplate by using custom [<Field />](https://jaredpalmer.com/formik/docs/api/field) components. Feel free to do that as "homework".
+Yes, in our application we will have so much error handling boilerplate. But luckily we can reduce the boilerplate by using custom [Field](https://jaredpalmer.com/formik/docs/api/field) components. Feel free to do that as "homework".
 
 # Recommended links
 
-- [formik - <Formik />](https://jaredpalmer.com/formik/docs/api/formik)
-- [formik - <Field />](https://jaredpalmer.com/formik/docs/api/field)
+- [formik - Formik](https://jaredpalmer.com/formik/docs/api/formik)
+- [formik - Field](https://jaredpalmer.com/formik/docs/api/field)
 
 # Tasks
 
