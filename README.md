@@ -83,7 +83,7 @@ Since the code and the README is still work in progress, please run `git pull` a
 
 Have a look at the [server](https://github.com/ankri/react-workshop/tree/master/server) directory to get more information about the server or at the [ui](https://github.com/ankri/react-workshop/tree/master/ui) directory to get more information about Create React App.
 
-When you are ready to start developing start with the first task.
+When you are ready to start developing start with the [Introduction](https://github.com/ankri/react-workshop/blob/master/tasks/Task-0.md).
 
 # Tasks
 

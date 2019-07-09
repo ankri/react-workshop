@@ -46,6 +46,13 @@ Next go to [Task 1](https://github.com/ankri/react-workshop/blob/master/tasks/Ta
 
 > **Important** For the tests the whole server is being mocked. It does not matter if you add, edit or remove trips and expenses!
 
+# Tips
+
+- Always open the developer tools (F12 in chrome) to see the `console.log` output
+- You can also install the React Dev Tools - Use the new [exeperimental one](https://github.com/bvaughn/react-devtools-experimental)
+- Check out the recommended links under each task
+- Ask questions, many of them!
+
 # Libraries
 
 The libraries used for the app are:

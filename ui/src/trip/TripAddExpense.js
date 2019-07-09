@@ -36,21 +36,23 @@ const expenseSchema = yup.object().shape({
 });
 
 export function TripAddExpense({ tripId, day }) {
-  React.useEffect(() => {
-    window.document.title = 'travel-expenses | Add expense';
-  }, []);
-
+  // we need these three services to load the data
   const tripService = useFetchTrip();
   const categoriesService = useFetchCategories();
   const paymentTypesService = useFetchPaymentTypes();
+
   const expenseService = useAddExpense();
 
+  // on render load the data, only reload when the tripId changes
   React.useEffect(() => {
     tripService.load(tripId);
     categoriesService.load();
     paymentTypesService.load();
   }, [tripId]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // the passing of the `isLoading`, `isIdle` and other status indicators is getting ridicilous at this point
+  // For now we keep it this way, but we could for example create a custom hook combining the three services and
+  // hiding this implementation detail of having to handle three different status states
   return (
     <AsyncContent
       isLoading={
@@ -77,11 +79,22 @@ export function TripAddExpense({ tripId, day }) {
       errorTitle={'An error occurred while loading the trip information'}
     >
       {() => {
+        // we can now access the relevant data
+
         const trip = tripService.data;
         const categories = categoriesService.data;
         const paymentTypes = paymentTypesService.data;
-        let selectedDate = null;
 
+        // this is a bit of if else if magic to boost the UX
+        //
+        // First check if the day passed down from the URL parameter is within the range of
+        // the dateFrom and dateTo period from the trip. In this case we select this date in the date picker
+        //
+        // Otherwise we'll check if today is within the range and select today in the date picker
+        // When today is before the trip starts we select the dateFrom from the trip in the date picker
+        // When today is after the trip ends we select the dateTo date from the trip in the date picker
+        //
+        let selectedDate = null;
         if (
           day &&
           isWithinRange(
@@ -102,6 +115,7 @@ export function TripAddExpense({ tripId, day }) {
         return (
           <Card style={{ marginTop: '1rem' }}>
             <Formik
+              // We have to pass the initial values to formik
               initialValues={{
                 title: '',
                 description: '',
@@ -111,14 +125,18 @@ export function TripAddExpense({ tripId, day }) {
                 paymentType: 'fdd4bf10-a14e-11e9-b5de-731bc35c33b1',
                 currency: 'EUR'
               }}
+              // we can directly pass the validation schema to formik
               validationSchema={expenseSchema}
+              // onSubmit only gets called when the validation passes
               onSubmit={values => {
                 expenseService.post(tripId, {
                   ...values,
+                  // we only want integers
                   amount: Math.floor(values.amount * 100)
                 });
               }}
             >
+              {/* We use the render props technique of formik to get access to these options and methods */}
               {({
                 values,
                 handleChange,
@@ -131,30 +149,24 @@ export function TripAddExpense({ tripId, day }) {
                 handleSubmit
               }) => {
                 return (
-                  <form
-                    style={{ width: '50%', maxWidth: 500, minWidth: 400 }}
-                    onSubmit={handleSubmit}
-                  >
+                  // TODO hook up the form with the correct method from formik
+                  <form style={{ width: '50%', maxWidth: 500, minWidth: 400 }}>
                     <FormGroup
                       label={
                         <>
                           <Icon icon="edit" /> <strong>Title</strong>
                         </>
                       }
-                      intent={
-                        errors.title && (touched.title || submitCount > 0)
-                          ? 'danger'
-                          : 'none'
-                      }
+                      // TODO change the intent to 'danger' if the title has an error
+                      // but only if the input has been touched, or the form has been submitted
+                      intent={'none'}
+                      // TODO change the helperText to the error message, but only if the input has been touched
+                      // or the form has been submitted
                       helperText={
-                        errors.title && (touched.title || submitCount > 0) ? (
-                          errors.title
-                        ) : (
-                          <>
-                            What was the occasion to spend money? For Example:{' '}
-                            <em>Lunch</em>
-                          </>
-                        )
+                        <>
+                          What was the occasion to spend money? For Example:{' '}
+                          <em>Lunch</em>
+                        </>
                       }
                       labelFor="expense-title"
                       labelInfo="(required)"
@@ -164,21 +176,21 @@ export function TripAddExpense({ tripId, day }) {
                         name="title"
                         id="expense-title"
                         autoFocus
-                        value={values.title}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        leftIcon={
-                          errors.title && (touched.title || submitCount > 0)
-                            ? 'cross'
-                            : null
-                        }
-                        intent={
-                          errors.title && (touched.title || submitCount > 0)
-                            ? 'danger'
-                            : 'none'
-                        }
+                        // TODO hook up value, onChange and onBlur
+                        // value={}
+                        // onChange={}
+                        // onBlur={}
+
+                        // TODO change the leftIcon to 'cross' when the title has an error but only
+                        // if the input has been touched or the form has been submitted
+                        leftIcon={null}
+                        // TODO change the intent to 'danger' when the title has an error but only
+                        // if the input has been touched or the form has been submitted
+                        intent={'none'}
                       />
                     </FormGroup>
+
+                    {/* The description is optional. Luckily we do not need error handling here */}
                     <FormGroup
                       label={
                         <>
@@ -199,9 +211,10 @@ export function TripAddExpense({ tripId, day }) {
                         id="expense-title"
                         fill
                         name="description"
-                        value={values.description}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
+                        // TODO but we do have to hook up value, onChange and onBlur
+                        // value={}
+                        // onChange={}
+                        // onBlur={}
                       />
                     </FormGroup>
                     <Divider />
@@ -212,16 +225,10 @@ export function TripAddExpense({ tripId, day }) {
                           <Icon icon="calendar" /> <strong>Select date</strong>
                         </>
                       }
-                      intent={
-                        errors.date && (touched.date || submitCount > 0)
-                          ? 'danger'
-                          : 'none'
-                      }
-                      helperText={
-                        errors.date && (touched.date || submitCount > 0)
-                          ? 'Please select a date'
-                          : 'Select the date when you spent the money'
-                      }
+                      // TODO change the intent to danger, but only ...
+                      intent={'none'}
+                      // TODO change the intent to 'Please select a date', but only ...
+                      helperText={'Select the date when you spent the money'}
                       labelFor="expense-date"
                       labelInfo="(required)"
                     >
@@ -235,20 +242,23 @@ export function TripAddExpense({ tripId, day }) {
                             year: 'numeric'
                           }).format(date)
                         }
-                        intent={
-                          errors.date && (touched.date || submitCount > 0)
-                            ? 'danger'
-                            : 'none'
-                        }
+                        // TODO change the intent to danger, but only ...
+                        intent={'none'}
                         parseDate={date => parse(date)}
                         minDate={trip.dateFrom}
                         maxDate={trip.dateTo}
-                        value={values.date}
+                        // TODO hook up the value
+                        // selectedDate is almost correct
+                        value={selectedDate}
+                        // TODO hook up onChange
+                        // hint: onChange does not pass an event. we need to use a different method than before
+                        // have a look at the Task description
                         onChange={date => {
-                          setFieldValue('date', date);
-                          setFieldTouched('date', true);
+                          console.log(date);
+                          // TODO we also have to tell the field that it has been touched
                         }}
-                        onBlur={handleBlur}
+                        // TODO hook up onBlur
+                        // onBlur={}
                       />
                     </FormGroup>
                     <Divider
@@ -260,18 +270,10 @@ export function TripAddExpense({ tripId, day }) {
                           <Icon icon="bank-account" /> <strong>Amount</strong>
                         </>
                       }
-                      intent={
-                        errors.amount && (touched.amount || submitCount > 0)
-                          ? 'danger'
-                          : 'none'
-                      }
-                      helperText={
-                        errors.amount && (touched.amount || submitCount > 0) ? (
-                          errors.amount
-                        ) : (
-                          <>How much money did you spent?</>
-                        )
-                      }
+                      // TODO change the intent to danger, but only ...
+                      intent={'none'}
+                      // TODO change the helperText to the errors.amount text, but only...
+                      helperText={<>How much money did you spent?</>}
                       labelFor="expense-amount"
                       labelInfo="(required)"
                     >
@@ -279,21 +281,21 @@ export function TripAddExpense({ tripId, day }) {
                         type="number"
                         name="amount"
                         id="expense-amount"
-                        leftIcon={
-                          errors.amount && (touched.amount || submitCount > 0)
-                            ? 'cross'
-                            : null
-                        }
-                        intent={
-                          errors.amount && (touched.amount || submitCount > 0)
-                            ? 'danger'
-                            : 'none'
-                        }
-                        value={values.amount}
-                        onChange={handleChange}
+                        // TODO change the leftIcon to 'cross' but only if ...
+                        leftIcon={null}
+                        // TODO change the intent to 'danger' but only if ...
+                        intent={'none'}
+                        // TODO hook up the value
+                        // value={}
+                        // TODO hook up onChange
+                        // onChange={}
+
                         onBlur={event => {
-                          setFieldValue(
-                            'amount',
+                          // TODO set the field value to the value below
+                          // this makes sure that we we always have only to decimals
+                          // Since we're changing the value onBlur the user instantly gets feedback
+                          // that the value has changed (and maybe has been rounded)
+                          console.log(
                             values.amount ? values.amount.toFixed(2) : 0
                           );
                           handleBlur(event);
@@ -317,7 +319,8 @@ export function TripAddExpense({ tripId, day }) {
                         {categories.map(category => (
                           <Tag
                             onClick={() => {
-                              setFieldValue('category', category.id);
+                              // TODO select the category
+                              console.log('category', category.id);
                             }}
                             style={{
                               marginRight: '0.5rem',
@@ -355,7 +358,8 @@ export function TripAddExpense({ tripId, day }) {
                         {paymentTypes.map(paymentType => (
                           <Tag
                             onClick={() => {
-                              setFieldValue('paymentType', paymentType.id);
+                              // TODO select the paymentType
+                              console.log('paymentType', paymentType.id);
                             }}
                             style={{
                               marginRight: '0.5rem',

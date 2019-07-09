@@ -57,3 +57,10 @@ We now want to make a re-usable component out of it and `map` over the `trips` t
 Consider provider `PropTypes` for your new component.
 
 > Try running the tests now but ignore the test called "Test document title" - we will get back to it later.
+
+# Recommended links
+
+- [Introducing JSX](https://reactjs.org/docs/introducing-jsx.html)
+- [Rendering Elements](https://reactjs.org/docs/rendering-elements.html)
+- [Components and Props](https://reactjs.org/docs/components-and-props.html)
+- [Lists and Keys](https://reactjs.org/docs/lists-and-keys.html)

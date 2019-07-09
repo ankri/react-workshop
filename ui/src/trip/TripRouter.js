@@ -8,7 +8,6 @@ import { TripNotFound } from './TripNotFound';
 export default function TripsRouter() {
   return (
     <Switch>
-      {/* router todo */}
       <Route
         exact
         path="/trip/:tripId"
@@ -40,25 +39,6 @@ export default function TripsRouter() {
         }}
       />
 
-      {/* <Route
-        exact
-        path="/trip/:tripId/:day(\d{8})"
-        render={({ match }) => {
-          return (
-            // See the above explanation
-            <Categories>
-              {({ categories, categoriesMap }) => (
-                <Trip
-                  tripId={match.params.tripId}
-                  showDay={match.params.day}
-                  categoriesMap={categoriesMap}
-                />
-              )}
-            </Categories>
-          );
-        }}
-      /> */}
-
       <Route
         exact
         path="/trip/:tripId/all/expenses"
@@ -66,19 +46,6 @@ export default function TripsRouter() {
           return <TripAddExpense tripId={match.params.tripId} />;
         }}
       />
-
-      {/* <Route
-        exact
-        path="/trip/:tripId/:day(\d{8})/expenses"
-        render={({ match }) => {
-          return (
-            <TripAddExpense
-              tripId={match.params.tripId}
-              day={match.params.day}
-            />
-          );
-        }}
-      /> */}
 
       {/* fallback */}
       <Route component={TripNotFound} />
