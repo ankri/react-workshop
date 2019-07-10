@@ -85,6 +85,10 @@ Have a look at the [server](https://github.com/ankri/react-workshop/tree/master/
 
 When you are ready to start developing start with the [Introduction](https://github.com/ankri/react-workshop/blob/master/tasks/Task-0.md).
 
+# Gotchas
+
+If you're receiving the error `null is not an object` or `could not proxy request` you haven't started your server yet. To be able to run the application both server and app have to run.
+
 # Tasks
 
 - [Introduction](https://github.com/ankri/react-workshop/blob/master/tasks/Task-0.md) - Let's start with the introduction: What is the application about and how to start the TDD tests
